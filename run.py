@@ -1,8 +1,12 @@
+# Built-in Library
 import random
 import utils
+
+# Custom Stuff
 import constants
 import functools
 
+# --- --- ---
 
 def dnaString():
     usersay = int(input("How many acids? >>> "))

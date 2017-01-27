@@ -1,4 +1,4 @@
-GENETEIC_CODE_DICUIONARY = {"UUU": "Phe",
+GENETEIC_CODE_DICTIONARY = {"UUU": "Phe",
                             "UUC": "Phe",
                             "UUA": "Leu",
                             "UUG": "Leu",
