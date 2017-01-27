@@ -8,7 +8,7 @@ def dnaString():
     usersay = int(input("How many acids? >>> "))
     init = ""
     for _ in range(usersay):
-        init += random.choice("ATCG")
+        init += random.choice("AUCG")
     return init
 
 
