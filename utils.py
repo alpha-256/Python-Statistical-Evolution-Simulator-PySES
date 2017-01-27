@@ -1,6 +1,6 @@
 import random
 import re
-
+import constants
 
 def generate_random_string(multiple_three=1):
     """
@@ -88,6 +88,27 @@ def splice_sequence(string_sequence):
 
     return seq_list
 
+def translate_sequence(list_of_char_sequence):
+    """
+    Translate a sequence into genetic code
+
+    Arguments
+    ---------
+    list_of_char_sequence ([str])
+        The list of genetic code
+
+    Returns
+    -------
+    list of string
+        ["genetic code here", ...]
+    """
+
+    translated = []
+
+    for dna_set in list_of_char_sequence:
+        translated.append(constants.GENETEIC_CODE_DICTIONARY.get(dna_set))
+
+    return translated
 
 class NotMultipleOf3(Exception):
 
