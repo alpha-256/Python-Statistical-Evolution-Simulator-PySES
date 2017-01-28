@@ -8,11 +8,15 @@ import functools
 
 # --- --- ---
 
+
 def dnaString():
+
     usersay = int(input("How many acids? >>> "))
     init = ""
+
     for _ in range(usersay):
-        init += random.choice("AUCG")
+        init += random.choice(constants.GENETIC_ACID)
+
     return init
 
 
@@ -45,19 +49,19 @@ def test_run_decorator(run_count=0):
         Run the function number of times
     """
 
+    @functools.wraps
     def real_decorator(fx):
 
+        @functools.wraps
         def wrapper(*args, **kwargs):
 
             for count in range(run_count):
-                print("--- Running Test: {}/{} ---".format(count+1, run_count))
+                print("--- Running Test: {}/{} ---".format(count + 1, run_count))
                 fx(*args, **kwargs)
 
         return wrapper
 
     return real_decorator
-
-
 
 
 @test_run_decorator(2)
@@ -68,9 +72,9 @@ def test_run2():
     gen_code = utils.translate_sequence(raw_seq)
 
     for idx, character_set in enumerate(raw_seq):
-        print(character_set[0],"|")
-        print(character_set[1],"|")
-        print(character_set[2],"| ->",gen_code[idx])
+        print(character_set[0], "|")
+        print(character_set[1], "|")
+        print(character_set[2], "| ->", gen_code[idx])
         print()
     print('=== Complete ===')
 

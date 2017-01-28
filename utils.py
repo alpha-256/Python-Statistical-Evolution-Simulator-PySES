@@ -108,7 +108,7 @@ def translate_sequence(list_of_char_sequence):
     translated = []
 
     for dna_set in list_of_char_sequence:
-        translated.append(constants.GENETEIC_CODE_DICTIONARY.get(dna_set))
+        translated.append(constants.GENETIC_CODE_DICTIONARY.get(dna_set))
 
     return translated
 
