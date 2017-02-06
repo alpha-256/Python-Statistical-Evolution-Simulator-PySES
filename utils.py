@@ -21,7 +21,7 @@ def generate_random_string(multiple_three=1):
     rand_list = []
 
     for count in range(multiple_three):
-        rand_string = "".join([random.choice("ATCG") for _ in range(3)])
+        rand_string = "".join([random.choice("AUCG") for _ in range(3)])
         rand_list.append(rand_string)
 
     return rand_list

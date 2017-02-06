@@ -67,7 +67,7 @@ def test_run_decorator(run_count=0):
 @test_run_decorator(2)
 def test_run2():
 
-    raw_seq = utils.generate_random_string(6)
+    raw_seq = utils.generate_random_string(9)
 
     gen_code = utils.translate_sequence(raw_seq)
 
