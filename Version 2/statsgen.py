@@ -1,29 +1,39 @@
+import sys
+import simpleai
+import math
 from random import randint as ri
-class statsControl:
-    f = []
-    rr = []
-    mr = []
-    def gen():
-        f.append(ri(0, 100))
-        mr.append(ri(0, 5))
-        rr.append(ri(0, 8))
-    def generationCounter(generation):
-        generation =  generation + 1
-        print("Generation:", generation)
-        print("=====================================================================")
-    def resetList():
-        fn = []
-        rrn = []
-        mrn = []
-    def anyAlive(f, rr, mr, fn, rrn, mrn, rr_sum):
-        if rr_sum == 0:
-            print("Species died")
-            pass
-            exit()
-        elif rr_sum > 0:
-            resetList(rr_sum, rrn, mrn, fn)
-            genOffspring(f, rr, mr, rr_sum)
-            generationCounter(generation)
-            countOffspring()
-        else:
-            pass
+
+class genStats:
+
+    #var Declare
+    global population
+    population = int(input("Population? >>> "))
+
+    #All Data
+    genLife = []
+    genStrength = []
+    genMutation = []
+
+    #Generate random popuulation data
+    x = 0
+    while x < population:
+        genLife.append(ri(1, 100))
+        genStrength.append(ri(1, 20))
+        genMutation.append(ri(1, 5))
+        x = x + 1
+
+    #Translate to str format
+    genLife = str(genLife)
+    genStrength = str(genStrength)
+    genMutation = str(genMutation)
+
+    #open data.txt for input
+    with open("lifeData.txt", "w+") as lifeData :
+        lifeData.write(genLife)
+        lifeData.close()
+    with open("strengthData.txt", "w+") as strengthData :
+        strengthData.write(genStrength)
+        strengthData.close()
+    with open("mutationData.txt", "w+") as mutationData :
+        mutationData.write(genMutation)
+        mutationData.close()
