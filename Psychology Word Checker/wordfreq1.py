@@ -1,4 +1,6 @@
 import re
+import utils_child
+
 
 def menu1():
     print("##################################################################")
@@ -15,6 +17,8 @@ def menu1():
     print("#                                                                #")
     print("#                                                                #")
     print("##################################################################")
+
+
 def menu2():
     print("##################################################################")
     print("#                                                                #")
@@ -29,6 +33,7 @@ def menu2():
     print("#                                                                #")
     print("#                                                                #")
     print("##################################################################")
+
 
 def menu3():
     print("##################################################################")
@@ -48,29 +53,29 @@ def menu3():
 
 global ckw_list
 ckw_list = []
-#Questions for menu1
+# Questions for menu1
 menu1()
 option1 = int(input("Which Option? >>> "))
 if option1 == 1:
     with open("Condition-1-All.txt", "r") as _f:
-        text = _f.read();
+        text = _f.read()
 elif option1 == 2:
     with open("Person.txt", "r") as _f:
-        text = _f.read();
+        text = _f.read()
 else:
-    raise Exception("Unknown option provided");
+    raise Exception("Unknown option provided")
 
-#Questions for menu2
+# Questions for menu2
 menu2()
 option2 = int(input("Which Option? >>> "))
 if option1 == 1:
-    showWords = 0;
+    showWords = 0
 elif option2 == 2:
-    showWords = 1;
+    showWords = 1
 else:
-    raise Exception("Unknown option provided");
+    raise Exception("Unknown option provided")
 
-#Questions for menu3
+# Questions for menu3
 menu3()
 option3 = int(input("Which Option? >>> "))
 if option3 == 1:
@@ -85,59 +90,38 @@ if option3 == 1:
         ckw = str(input("Please press *Enter* after each word >>> : "))
         if ckw == "qwerty":
             pass
-        else :
+        else:
             pass
 elif option3 == 2:
     keyDef = 1
 else:
     raise Exception("Unknown option provided")
 
-# --- Text clean up ---
-
-# split lines and sentence to words
-text2 = text.lower().split("\n")
-text = []
-for line in text2:
-    text.extend(line.split(" "))
-text2 = [w for w in text if w]
-
-# remove special symbol from the lists
-text = []
-for wrd in text2:
-    text.append(re.sub(r"[:/\,.?!@#$%^&*()]", "", wrd))
-
-text2 = text
-
-#
-word_dict = dict()
-for wrd in text2:
-    val = word_dict.get(wrd.lower(), None)
-    if val: # exists
-        word_dict[wrd.lower()] = val+1
-    else:
-        word_dict[wrd.lower()] = 1
+word_dict = utils_child.raw_word_counter(text, case_sensitive=False)
 
 
-#Print all words in sections
+# Print all words in sections
 def showAllWords():
     for k, v in word_dict.items():
-        print(k,"occoured",v, "time(s)")
+        print(k, "occoured", v, "time(s)")
 
-#Save all words in sections
+# Save all words in sections
+
+
 def saveAllWords():
     per_line_format = "{} occoured: {} times\n"
     with open("Condition-1-Wordcount.txt", "w+") as ff:
         for k, v in word_dict.items():
             ff.write(per_line_format.format(k, v))
 
-#Check DataSelection
+# Check DataSelection
 if showWords == 0:
     showAllWords()
 else:
     pass
 
 
-#Print and save key words
+# Print and save key words
 print("##################")
 with open("data.txt", "w+") as f:
     if keyDef == 0:
@@ -146,8 +130,9 @@ with open("data.txt", "w+") as f:
             #x = str(x)
             print(x + "\n")
             f.write(x + "\n")
-    else :
-        kw_list = ["River", "Seals", "Hunt", "Shore", "Log", "Canoes", "Arrows", "Fellows", "Paddles", "War", "Warriors", "Egulac", "Contorted", "Ecolar", "River", "Seals", "Hunt", "Shore", "Log"]
+    else:
+        kw_list = ["River", "Seals", "Hunt", "Shore", "Log", "Canoes", "Arrows", "Fellows", "Paddles",
+                   "War", "Warriors", "Egulac", "Contorted", "Ecolar", "River", "Seals", "Hunt", "Shore", "Log"]
         for kw in kw_list:
             x = str(kw) + " occoured: " + word_dict.get(kw.lower(), "0") + " time(s)"
             #x = str(x)

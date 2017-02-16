@@ -5,6 +5,9 @@ import re
 # Custom
 import constants
 
+# +---------------------+
+# | NOTE Not main utils |
+# +---------------------+
 
 def raw_word_counter(raw_loaded_text, case_sensitive=False):
 
