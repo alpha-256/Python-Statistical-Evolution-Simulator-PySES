@@ -81,7 +81,7 @@ option3 = int(input("Which Option? >>> "))
 if option3 == 1:
     keyDef = 0
     ckwLoop = 0
-    while ckwLoop == 0:
+    while ckwLoop < 1:
         print("########################################################################")
         print("#                                                                      #")
         print("# If you are done, please type in 'qwerty' and press *Enter* two times #")
@@ -89,7 +89,7 @@ if option3 == 1:
         print("########################################################################")
         ckw = str(input("Please press *Enter* after each word >>> : "))
         if ckw == "qwerty":
-            pass
+            ckwLoop =+ 1
         else:
             pass
 elif option3 == 2:
@@ -138,5 +138,3 @@ with open("data.txt", "w+") as f:
             #x = str(x)
             print(x + "\n")
             f.write(x + "\n")
-
-#
