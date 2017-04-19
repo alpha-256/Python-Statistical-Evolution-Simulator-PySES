@@ -31,9 +31,9 @@ def divMax(fData, realData):
 
     pass
 
-def genDataSet(numberOfSets=500):
+def genDataSet(population=28):
 
-    for _ in range(numberOfSets):
+    for _ in range(population):
         genDat(fData)
 
     divMax(fData, realData)
@@ -42,29 +42,29 @@ def genDataSet(numberOfSets=500):
 
 def printDataSet():
 
-    for rollingstone in range(0,len(realData),4):
+    for indexCounter in range(0,len(realData),4):
 
-        damn = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("DD", motherfucker)
+        rdPrint = realData[indexCounter]
+        setIndex = round(rdPrint, 2)
+        print("Child 1", setIndex)
 
-        rollingstone = rollingstone + 1
-        damn = realData[rollingstone]
-        motherfucker = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("Dd", motherfucker)
+        indexCounter = indexCounter + 1
+        rdPrint = realData[indexCounter]
+        setIndex = realData[indexCounter]
+        setIndex = round(rdPrint, 2)
+        print("Child 2", setIndex)
 
-        rollingstone = rollingstone + 1
-        damn = realData[rollingstone]
-        motherfucker = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("dd", motherfucker)
+        indexCounter = indexCounter + 1
+        rdPrint = realData[indexCounter]
+        setIndex = realData[indexCounter]
+        setIndex = round(rdPrint, 2)
+        print("Child 3", setIndex)
 
-        rollingstone = rollingstone + 1
-        damn = realData[rollingstone]
-        motherfucker = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("dD", motherfucker)
+        indexCounter = indexCounter + 1
+        rdPrint = realData[indexCounter]
+        setIndex = realData[indexCounter]
+        setIndex = round(rdPrint, 2)
+        print("Child 4", setIndex)
 
         print("--- End ---")
 

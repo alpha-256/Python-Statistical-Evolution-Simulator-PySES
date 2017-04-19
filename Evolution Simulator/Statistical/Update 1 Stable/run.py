@@ -3,6 +3,9 @@ import math
 
 fData = []
 realData = []
+childData = []
+rrData = []
+childRR = []
 
 def genDat(fData=None):
     """
@@ -13,6 +16,7 @@ def genDat(fData=None):
     survivalPercent = survivalRate / 100
     reproductiveRate = int(ri(0,4))
 
+    rrData.append(reproductiveRate)
     if not isinstance(fData, type(None)):
         fData.append(survivalPercent * reproductiveRate)
 
@@ -31,49 +35,43 @@ def divMax(fData, realData):
 
     pass
 
-def genDataSet(numberOfSets=500):
+def genDataSet(population=101):
 
-    for _ in range(numberOfSets):
+    for _ in range(population):
         genDat(fData)
 
     divMax(fData, realData)
 
     return
 
-def printDataSet():
+def printDataSet(childData, rrData):
 
-    for rollingstone in range(0,len(realData),4):
+    survivors = 0
 
-        damn = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("DD", motherfucker)
+    for indexCounter in range(0,len(realData),1):
 
-        rollingstone = rollingstone + 1
-        damn = realData[rollingstone]
-        motherfucker = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("Dd", motherfucker)
-
-        rollingstone = rollingstone + 1
-        damn = realData[rollingstone]
-        motherfucker = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("dd", motherfucker)
-
-        rollingstone = rollingstone + 1
-        damn = realData[rollingstone]
-        motherfucker = realData[rollingstone]
-        motherfucker = round(damn, 2)
-        print("dD", motherfucker)
-
-        print("--- End ---")
+        rdPrint = realData[indexCounter]
+        reproData = rrData[indexCounter]
+        setIndex = round(rdPrint, 2)
+        rrIndex = round(reproData, 2)
+        if setIndex >= 0.3:
+            print("Parent", "#", indexCounter, setIndex)
+            #survivor counter
+            survivors = survivors + 1
+            childData.append(setIndex)
+            childRR.append(rrIndex)
+        else :
+            pass
 
         #with open("relative fitness.txt", "a") as f:
 
+    #Survivor Counter
+    print(survivors, "Parents Survived")
+
 if __name__ == "__main__":
     genDataSet()
-    printDataSet()
+    printDataSet(childData, rrData)
 
-    print(len(fData))
+    print(childData)
     print("run the script as the following to be interactive")
     print("python -i run.py")
