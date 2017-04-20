@@ -39,7 +39,7 @@ def createEntity(memQue, indexCounter, mutationRate, entityFitness, reproductive
     print("\n")
     print("Mutation Rate                :: ", mutationRate)
     print("Binary DNA Sequence          :: ", ("".join(memQue)))
-    print("Fitness                      :: ", entityFitness[indexCounter])
+``    print("Fitness                      :: ", entityFitness[indexCounter])
     print("Chances of Mitosis           :: ", reproductiveRate)
     print("Percent of survivalbility    :: ", survivalPercent)
     print("\n")
