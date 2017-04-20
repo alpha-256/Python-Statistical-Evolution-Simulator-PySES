@@ -29,9 +29,7 @@ Check list
 
 #Entity Data Generation
 def createEntity(memQue, indexCounter, mutationRate, entityFitness, reproductiveRate, survivalPercent):
-    memQue = []
-    for x in range(8):
-        memQue.append(rc(binary))
+    memQue.append([rc(binary) for _ in range(8)])
     survivalPercent = int(ri(0,50))
     mutationRate = int(ri(0,100)) / 2
     reproductiveRate = int(ri(0,4))
@@ -39,7 +37,7 @@ def createEntity(memQue, indexCounter, mutationRate, entityFitness, reproductive
         entityFitness.append(survivalPercent * reproductiveRate)
     print("\n")
     print("Mutation Rate                :: ", mutationRate)
-    print("Binary DNA Sequence          :: ", "".join(memQue))
+    print("Binary DNA Sequence          :: ", "".join(memQue[-1]))
     print("Fitness                      :: ", entityFitness[indexCounter])
     print("Chances of Mitosis           :: ", reproductiveRate)
     print("Percent of survivalbility    :: ", survivalPercent)
