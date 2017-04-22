@@ -11,29 +11,28 @@ dnaLen = 8
 probability = []
 dna = []
 
-"""Artihmetic Vars"""
-#Determine Mutation probability
-mutationRate = int(ri(0,100)) / 2
-probability = mutationRate * dnaLen
+for x in range(0, population):
 
-#Determine Survival probability
-survivalPercent = int(ri(0,50))
-reproductiveRate = int(ri(0,4))
+    #Determine Mutation probability
 
-for entity in range(population):
-    dna.append()
+    mutationRate = int(ri(0,10)) / 100
+    probability = mutationRate * dnaLen
     print("Mutation Rate % :: ", probability, "%")
 
-    """Mutate"""
+    #Generate DNA seggment
     memQue = [rc(binary) for _ in range(dnaLen)]
     print(memQue)
 
-    for x in range(0, 9):
-        if (random.uniform(0.0, 1.0) < probability):
-            enumerate(memQue)
-            item = rc(binary)
-            idx = ri(0,7)
-            memQue[idx] = item
-        else:
-            print("No mutation")
-    print(memQue)
+    """Start to Mutate"""
+    if (random.uniform(0.0, 1.0) < probability):
+        enumerate(memQue)
+        item = rc(binary)
+        idx = ri(1,dnaLen)
+        memQue[idx] = item
+    else:
+        pass;
+    dna.append(''.join(memQue))
+
+print(memQue)
+print("\n")
+print(dna)
