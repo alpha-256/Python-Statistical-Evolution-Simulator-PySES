@@ -6,7 +6,7 @@ import random
 binary = ["A", "T", "C", "G"]
 memQue           =  []
 mutationRate     =  []
-population = 5
+population = 2
 dnaLen = 8
 probability = []
 dna = []
