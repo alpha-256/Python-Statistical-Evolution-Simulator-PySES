@@ -1,5 +1,6 @@
 from random import randint as ri
 from random import choice as rc
+import random
 
 SR = []
 RR = []
@@ -11,6 +12,7 @@ parentDNA = []
 dnaLength = 100
 aminoAcids = ["A","T","C","G"]
 survived = []
+dna = []
 
 def genRawData(SR, RR):
 
@@ -80,23 +82,23 @@ def procceed():
             exit()
 
 def evolve():
-    for x in range(0, population):
-        mutationRate = int(ri(0,10)) / 2
-        probability = mutationRate * dnaLen
+    for x in range(len(population)):
+        mutationRate = int(ri(0,10)) / 4
+        probability = mutationRate * dnaLength
         print("Mutation Rate % :: ", probability, "%")
         MR.append(probability)
-        memQue = [rc(binary) for _ in range(dnaLen)]
+        memQue = [rc(aminoAcids) for _ in range(dnaLength)]
         print(memQue)
 
         if (random.uniform(0.0, 1.0) < probability) :
             enumerate(memQue)
-            item = rc(binary)
+            item = rc(aminoAcids)
             idx = ri(0, 9)
             memQue[idx] = item
         else :
             pass ;
         dna.append(''.join(memQue))
-        print(memQue)
+        print(dna)
 
 def writeData():
     with open("data.txt", a) as f:
@@ -104,3 +106,4 @@ def writeData():
 genRawData(SR, RR)
 calculateRawData()
 showData()
+evolve()
