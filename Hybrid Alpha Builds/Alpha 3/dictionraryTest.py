@@ -1,31 +1,52 @@
+import math
+
 from random import randint as ri
 from random import choice as rc
 import random
 
-binary = ["A", "T", "C", "G"]
-mutationRate     =  []
-population = int(input("Population >>>= ")) - 1
-dnaLen = 32
-probability = []
-dna = []
-SR = []
-RR1 = []
-RF = []
-RR = []
-bindRF = []
-preRF = []
-liveCount = []
-genration = []
+binary          = ["A", "T", "C", "G"]
+memQue          = []
+mutationRate    = []
+
+population      = 2
+dnaLen          = 10
+
+probability     = []
+dna             = []
+SR              = []
+RR              = []
+RF              = []
+MR              = []
+preRF           = []
+surviived       = []
+global survived
+
+def genOne():
+    for indexCounter in population:
+        SR.append(ri(0, 100) / 100)
+        RR.append(ri(0, 8))
+
+        srSet = float(SR[indexCount])
+        rrSet = float(RR[indexCount])
+        rfRound = srSet * rrSet
+
+        preRF.append(round(rfRound, 2))
+        maxData = max(preRF)
+
+        x = preRF[indexCounter] / maxData
+        if x >= 3.0 :
+            RF.append(y)
+        else:
+            pass;
 
 def runMutation():
-    z = liveCount[0]
-    for x in range(0, z):
-        mutationRate = int(ri(0,100)) / 50
+    for x in range(0, population):
+        mutationRate = int(ri(0,10)) / 2
         probability = mutationRate * dnaLen
         print("Mutation Rate % :: ", probability, "%")
-
+        MR.append(probability)
         memQue = [rc(binary) for _ in range(dnaLen)]
-        print(''.join(memQue))
+        print(memQue)
 
         if (random.uniform(0.0, 1.0) < probability):
             enumerate(memQue)
@@ -35,34 +56,17 @@ def runMutation():
         else:
             pass;
         dna.append(''.join(memQue))
-        print(''.join(memQue))
-        print("\n")
+        print(memQue)
 
-def genOne():
-    for indexCount in range(0, population) :
-        bindRR = (ri(0, 8))
-        bindSR = (ri(0, 100) / 100)
-        RR1.append(bindRR)
-        SR.append(bindSR)
-        bindRF.append(round(bindSR * bindRR, 2))
-    survived = 0
-    for indexCounter in range(0, population) :
-        x = round(bindRF[indexCounter]/max(bindRF), 2)
-        if x <= 0.3 :
-            RF.append(x)
-            RR.append(RR1[indexCounter])
-            survived = survived + 1
+def showData():
+    for x in RF:
+        if RF[x] <= 9:
+            print("ID    ", x, "RF: ", RF[x], "MR: ", MR[x] )
         else :
-            pass
-    liveCount.append(survived)
+            print("ID   ", x, "RF: ", RF[x], "MR: ", MR[x] )
 
-genOne()
-x = 0
-while x < len(RF):
-    if x < 10:
-        print("ID    ", x, RR[x], "  ", RF[x])
-    else :
-        print("ID   ", x, RR[x], "  ", RF[x])
-    x += 1
-print(liveCount[0], "/", population + 1, "survived")
 runMutation()
+print(dna)
+for indexCount in range(0, population):
+    genOne()
+showData()

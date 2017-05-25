@@ -4,6 +4,7 @@ from random import randint as ri
 from random import choice as rc
 import random
 
+"""Assign Vars"""
 binary = ["A", "T", "C", "G"]
 memQue           =  []
 mutationRate     =  []
@@ -15,8 +16,6 @@ SR = []
 RR = []
 RF = []
 preRF = []
-surviived = []
-global survived
 
 def defStats():
     SR.append(ri(0, 100) / 100)
@@ -29,16 +28,13 @@ def defStats():
 def genOne():
     maxData = max(preRF)
     for indexCounter in preRF:
-        x = preRF[indexCounter] / maxData
-        if x >= 3.0 :
-            RF.append(y)
-        else:
-            pass;
+        RF.append(preRF[indexCounter]/maxData)
 
 def showData():
     print(RR)
     print(SR)
     print(preRF)
+
 
 def runMutation():
     for x in range(0, population):
@@ -60,6 +56,8 @@ def runMutation():
         print(memQue)
         print("\n")
 
+def listDict():
+    print()
 
 runMutation()
 print("\n")
