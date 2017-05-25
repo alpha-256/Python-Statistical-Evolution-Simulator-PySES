@@ -10,7 +10,7 @@ pRF = []
 population = []
 parentDNA = []
 dnaLength = 100
-aminoAcids = ["A","T","C","G"]
+aminoAcids = ["A","U","C","G"]
 survived = []
 dna = []
 
@@ -83,7 +83,7 @@ def procceed():
 
 def evolve():
     for x in range(len(population)):
-        mutationRate = int(ri(0,10)) / 4
+        mutationRate = int(ri(0,1.0)) / 6
         probability = mutationRate * dnaLength
         print("Mutation Rate % :: ", probability, "%")
         MR.append(probability)
