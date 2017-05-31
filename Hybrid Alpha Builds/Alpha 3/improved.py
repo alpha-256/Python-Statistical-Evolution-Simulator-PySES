@@ -22,7 +22,8 @@ def genRawData(SR, RR):
 
     for counter in range(0, x):
 
-        #Generate base state data
+        #Generate individual survival rate, reproduction rate
+        #And mutation rate
         SR.append(ri(0, 100))
         RR.append(ri(0, 8))
         MR.append(int(ri(0,10)) / 2)
@@ -33,6 +34,7 @@ def genRawData(SR, RR):
 
 def calculateRawData():
 
+    #Calculate relative fitness
     x = int(population[0])
 
     for counter in range(0, x):
@@ -62,12 +64,15 @@ def showData():
 
 def evolve(parentDNA):
     for x in range(len(population)):
+
+        #Calculate probability
         mutationRate = int(ri(0,10))
         probability1 = mutationRate * dnaLength
         probability = probability1 / 100
         print("Mutation Rate % :: ", probability, "%")
         MR.append(probability)
 
+        #Blind picking system
         if (random.uniform(0.0, 1.0) < probability) :
             enumerate(parentDNA)
             item = rc(aminoAcids)
@@ -75,6 +80,8 @@ def evolve(parentDNA):
             parentDNA[idx] = item
         else :
             pass ;
+
+        #Append Data
         for index in parentDNA:
             dna.append(index)
         print(dna)
