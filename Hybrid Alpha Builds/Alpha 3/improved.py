@@ -1,3 +1,4 @@
+import itertools
 from random import randint as ri
 from random import choice as rc
 import random
@@ -59,51 +60,26 @@ def showData():
     liveCount = len(survived)
     print(liveCount, "out of", population, "suvived")
 
-def procceed():
-
-    q1 = input("Evolve: yes/no?")
-    if q1 == "yes":
-        #procceed
-        pass
-
-    elif q1 == "yes":
-        #procceed
-        pass
-
-    else :
-        print("Unknown option: assuming 'no'")
-        q2 = input("Write data?")
-
-        if q2 == "yes":
-            #write data
-            pass
-
-        else :
-            exit()
-
-def evolve():
+def evolve(parentDNA):
     for x in range(len(population)):
-        mutationRate = int(ri(0,1.0)) / 6
-        probability = mutationRate * dnaLength
+        mutationRate = int(ri(0,10))
+        probability1 = mutationRate * dnaLength
+        probability = probability1 / 100
         print("Mutation Rate % :: ", probability, "%")
         MR.append(probability)
-        memQue = [rc(aminoAcids) for _ in range(dnaLength)]
-        print(memQue)
 
         if (random.uniform(0.0, 1.0) < probability) :
-            enumerate(memQue)
+            enumerate(parentDNA)
             item = rc(aminoAcids)
             idx = ri(0, 9)
-            memQue[idx] = item
+            parentDNA[idx] = item
         else :
             pass ;
-        dna.append(''.join(memQue))
+        for index in parentDNA:
+            dna.append(index)
         print(dna)
 
-def writeData():
-    with open("data.txt", a) as f:
-        f.write()
 genRawData(SR, RR)
 calculateRawData()
 showData()
-evolve()
+evolve(parentDNA)
