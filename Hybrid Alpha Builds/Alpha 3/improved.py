@@ -84,7 +84,11 @@ def evolve(parentDNA):
         #Append Data
         for index in parentDNA:
             dna.append(index)
-        print(dna)
+        counter = 0
+        for item in dna:
+            print(counter)
+            print(item)
+            counter += 1
 
 genRawData(SR, RR)
 calculateRawData()
