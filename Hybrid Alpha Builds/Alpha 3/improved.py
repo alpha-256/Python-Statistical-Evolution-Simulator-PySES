@@ -1,4 +1,5 @@
-import itertools
+import numpy as np
+import matplotlib.pyplot as plt
 from random import randint as ri
 from random import choice as rc
 import random

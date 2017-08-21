@@ -10,7 +10,7 @@ def menu2():
     print("#                                                                #")
     print("#    Please type in the number of the option                     #")
     print("#                                                                #")
-    print("#    [1] Show all words with                                     #")
+    print("#    [1] Show aaall words with                                     #")
     print("#    [2] Show key words only                                     #")
     print("#                                                                #")
     print("#                                                                #")
