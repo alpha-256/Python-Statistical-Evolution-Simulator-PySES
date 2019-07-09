@@ -44,7 +44,10 @@ def genDataSet(population=51):
     divMax(fData, realData)
 
     return
-
+"""
+rrData is bound to genDat
+survivors
+"""
 def printDataSet(childData, rrData, survivors):
     for indexCounter in range(0,len(realData),1):
         rdPrint = realData[indexCounter]

@@ -9,9 +9,9 @@ def genDat(fData=None):
     Generate 3 value: survivalRate, survivalPercent, reproductiveRate
     """
 
-    survivalRate = int(ri(0,50))
+    survivalRate = int(ri(0,100))
     survivalPercent = survivalRate / 100
-    reproductiveRate = int(ri(0,4))
+    reproductiveRate = int(ri(0,2))
 
     if not isinstance(fData, type(None)):
         fData.append(survivalPercent * reproductiveRate)
